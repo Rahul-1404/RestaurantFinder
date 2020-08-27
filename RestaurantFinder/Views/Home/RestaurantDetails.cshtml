@@ -1,0 +1,29 @@
+﻿@model Restaurant
+
+<h1 class="font-weight-light">All About the Restaurant</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Avg Cost For Two</th>
+            <th scope="col">Currency</th>
+            <th scope="col">Cuisines</th>
+            <th scope="col">Address</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Distance From User</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.AverageCostForTwo</td>
+            <td>@Model.Currency</td>
+            <td>@Model.Cuisines</td>
+            <td>@Model.Location.Address</td>
+            <td>@Model.PhoneNumber</td>
+            <td>@Model.DistanceFromUser</td>
+            <td>@Model.Reviews</td>
+        </tr>         
+    </tbody>
+</table>

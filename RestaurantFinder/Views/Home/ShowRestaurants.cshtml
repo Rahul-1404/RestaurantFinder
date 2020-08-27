@@ -1,0 +1,140 @@
+﻿@model RestaurantFinder.ViewModels.SearchViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+    var points = (List<Location>)ViewData["points"];
+}
+
+
+<script src="js/index.js"></script>
+
+<div class="text-center">
+    <h1 class="display-4 font-weight-light">Search</h1>
+    <h2 class=" text text-center font-weight-lighter">Happy Dining.</h2>
+</div>
+
+<form asp-controller="Home" asp-action="ShowRestaurants" method="post">
+    <div class="text-center">
+        <input style=" width:30%" asp-for="SearchQuery" placeholder="Enter the restaurant name" />
+        <button type="submit">Search</button>
+    </div>
+
+</form>
+<button onclick="getLocation()">Search</button>
+
+@if (Model.restaurants.Any())
+{
+<form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Avg Cost For Two</th>
+                <th scope="col">Cuisines</th>
+                <th scope="col">Location</th>
+                <th scope="col">View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <form>
+                @foreach (var i in Model.restaurants)
+                {
+                    <tr>
+                        <td>@i.Restaurant.Name</td>
+                        <td>@i.Restaurant.AverageCostForTwo</td>
+                        <td>@i.Restaurant.Cuisines</td>
+                        <td>@i.Restaurant.Location.Address</td>
+                         @{
+                             var param = new Dictionary<string, string>
+                             {
+                                 {"ID" ,"i.Restaurant.ID"}
+                             };
+                         }
+                        <td><button class="glyphicon glyphicon-search" name="ID" value="@i.Restaurant.ID" type="submit" asp-controller="Home" asp-action="RestaurantDetails"></button></td>
+
+                    </tr>
+                             }
+            </form>
+        </tbody>
+    </table>
+</form>
+}
+
+else
+{
+    <h1>Could'nt find any relevant results , please try again</h1>
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
+    </style>
+</head>
+<body>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+        // Initialize and add the map
+        function initMap()
+        {
+            // The location of Uluru
+            var uluru = { lat: 40.634825299999996, lng: -74.04175130000002 };
+            var ulu = { lat: 48.634825299999996, lng: -74.04175130000002 };
+
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 4, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+            var mark = new google.maps.Marker({ position: ulu, map: map, label: "Thope" });
+
+            for (var i = 0; i < points.Count();i++)
+            {
+                console.log("Here");
+                var latitude = points[i].latitude;
+                var longitude = points[i].longitude;
+                var name = points[i].name;
+                var ulu = { lat: latitude, lng: longitude };
+                var mark = new google.maps.Marker({ position: ulu, map: map, label: name });
+            }
+        }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+</body>
+</html>
+
+
+<script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        fillLatLon(lat, lon);
+    }
+
+    function fillLatLon(lat, lon) {
+        $('#latbox').val(lat);
+        $('#lngbox').val(lon);
+    }
+</script>

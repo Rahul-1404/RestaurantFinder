@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "T80osGbenvQfqfc0Gcy0sz7jpkluTXWsO81M8arxHa0c/8Tk51M5wlYMdy6GxvlteVsQusI71cvlTXsFsx7d8w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rahul\\source\\repos\\RestaurantFinder\\RestaurantFinder\\RestaurantFinder.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rahul\\.nuget\\packages\\elasticsearch.net\\7.8.2\\elasticsearch.net.7.8.2.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\geocoordinate.netcore\\1.0.0.1\\geocoordinate.netcore.1.0.0.1.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\nest\\7.8.2\\nest.7.8.2.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.5.1\\system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\xplat.core\\1.7.20109.1\\xplat.core.1.7.20109.1.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\xplat.device.geolocation\\1.7.20109.1\\xplat.device.geolocation.1.7.20109.1.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\xplat.foundation\\1.7.20109.1\\xplat.foundation.1.7.20109.1.nupkg.sha512",
+    "C:\\Users\\rahul\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

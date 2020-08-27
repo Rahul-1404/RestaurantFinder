@@ -1,0 +1,43 @@
+﻿@model Location
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Restaurant Finder</h1>
+        <h2 class="font-weight-light">Finding BEST Food Around You Has Never Been So EASY!!</h2>
+            <div class="row">
+                <button style="margin-left: 40%; margin-top: 2%" class="text-center" onclick="getLocation()">Allow Access to your Location</button>
+            </div>
+            <form asp-controller="Home" asp-action="Index" method="post">
+
+                <div class="row">
+                    <input hidden asp-for="latitude" id="latbox" />
+                    <input hidden asp-for="longitude" id="lngbox" />
+                    <button style="margin-left:37% ; margin-top:2%" class="text-xl-center" type="submit"> Go , Fetch your Favourite Restaurants</button>
+                </div>
+            </form>
+    </div>
+<script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        fillLatLon(lat, lon);
+    }
+
+    function fillLatLon(lat, lon) {
+        $('#latbox').val(lat);
+        $('#lngbox').val(lon);
+    }
+</script>
